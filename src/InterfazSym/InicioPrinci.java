@@ -1,12 +1,15 @@
 
 package InterfazSym;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 
 public class InicioPrinci extends javax.swing.JFrame {
 
-    
+    public static String NombUsuario;
     public InicioPrinci() {
         initComponents();
         
@@ -39,14 +42,16 @@ public class InicioPrinci extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        lblNombreU = new javax.swing.JLabel();
+        txtNombreU = new javax.swing.JTextField();
+        lblPasswordU = new javax.swing.JLabel();
+        txtPasswordU = new javax.swing.JTextField();
+        lblCodigoU = new javax.swing.JLabel();
+        txtCodigoU = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
+        lblUltimoU = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -200,22 +205,22 @@ public class InicioPrinci extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 290, 20));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 290, 20));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setText("Nombre de usuario: ");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 190, -1));
+        lblNombreU.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblNombreU.setText("Nombre de usuario: ");
+        jPanel2.add(lblNombreU, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        jPanel2.add(txtNombreU, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 190, -1));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel8.setText("Contraseña:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 190, -1));
+        lblPasswordU.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblPasswordU.setText("Contraseña:");
+        jPanel2.add(lblPasswordU, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jPanel2.add(txtPasswordU, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 190, -1));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel9.setText("Confirmar Contraseña:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 190, -1));
+        lblCodigoU.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblCodigoU.setText("Codigo:");
+        jPanel2.add(lblCodigoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(txtCodigoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 190, -1));
 
         btnVolver.setBackground(new java.awt.Color(241, 222, 204));
         btnVolver.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -226,7 +231,7 @@ public class InicioPrinci extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 110, 50));
+        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 110, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(241, 222, 204));
         btnRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -237,7 +242,15 @@ public class InicioPrinci extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
+        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+
+        lblUltimoU.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblUltimoU.setText(".........");
+        jPanel2.add(lblUltimoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setText("Ultimo Codigo Registrado:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         javax.swing.GroupLayout frmAgregarLayout = new javax.swing.GroupLayout(frmAgregar.getContentPane());
         frmAgregar.getContentPane().setLayout(frmAgregarLayout);
@@ -287,43 +300,63 @@ public class InicioPrinci extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
 
+        cConnection cn = new cConnection(); // invoca a la clase que conecta
+    
+           Statement  st = null; 
+           ResultSet  rs = null;
+           jPassContra.setEchoChar('*');
+
+           String query;
+
+           int band = 0; //bandera para verificación
+
+           String user = txtNombre.getText();
+           String passw = jPassContra.getText();
+
+           if("".equals(user))
+               JOptionPane.showMessageDialog(null, "Ingrese nombre de usuario");
+           else if("".equals(passw))
+               JOptionPane.showMessageDialog(null, "Ingrese contraseña");
+           else {   
+
+               query = "SELECT * FROM Usuario WHERE NombUser = '"+user+"' AND PassUser = '"+passw+"'";
+
+               try{
+                    Connection conexion = cn.ObtenerConexion();
+
+                if(conexion == null){
+                    JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos");
+                    return;
+                }
+
+                st = conexion.createStatement();  
+                rs = st.executeQuery(query);
+
+                if(rs.next()){
+                    JOptionPane.showMessageDialog(null,"✅ Bienvenido " + user);
+                    this.setVisible(false);
+                    new Interfaz().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null,"❌ Usuario o contraseña incorrectos");
+                    txtNombre.setText("");
+                    jPassContra.setText("");
+                    txtNombre.requestFocus();
+                }
+
+            } catch (SQLException ex){
+                JOptionPane.showMessageDialog(null, "ERROR DE ACCESO: " + ex.getMessage());
+            }
+                   
+           }
         
-        jPassContra.setEchoChar('*');
-        try{
-
-            String nombre =txtNombre.getText().trim();
-            String contra = new String(jPassContra.getPassword()).trim();
-
-            if(nombre.isEmpty() || contra.isEmpty()){
-                throw  new Exception("Ingrese su nombre y contraseña para poder ingresar.");
-
-            }
-            if (nombre.equals("admi")&& contra.equals("1234")){
-                Interfaz nuevaVentana = new Interfaz();
-                nuevaVentana.setVisible(true);
-                nuevaVentana.setSize(750,600);
-                nuevaVentana.setLocationRelativeTo(null);
-                this.dispose();
-
-            } else{
-                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta ", "Aviso", JOptionPane.WARNING_MESSAGE);
-            }
-
-        } catch (Exception ex){
-
-            javax.swing.JOptionPane.showMessageDialog(this,
-                ex.getMessage(),"Aviso",javax.swing.JOptionPane.WARNING_MESSAGE);
-        }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAgregarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarNActionPerformed
 
         frmAgregar.setVisible(true);
         frmAgregar.setSize(400,315);
+
+       
     }//GEN-LAST:event_btnAgregarNActionPerformed
 
     private void jPassContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPassContraActionPerformed
@@ -336,23 +369,112 @@ public class InicioPrinci extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+ 
 
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "¡Usuario registrado con éxito",
-            "Registro completado",javax.swing.JOptionPane.WARNING_MESSAGE);
+    cConnection con = new cConnection();
 
-        frmInicionS.setVisible(true);
+    String codigo = txtCodigoU.getText();
+    String nombre = txtNombreU.getText();
+    String pass = txtPasswordU.getText();
+
+    if(nombre.equals("") || pass.equals("")){
+        JOptionPane.showMessageDialog(null, "Complete todos los campos");
+        return;
+    }
+
+    String sql = "INSERT INTO Usuario (IdUser, NombUser, PassUser) VALUES ("+codigo+", '"+nombre+"', '"+pass+"')";
+
+    try {
+        Statement st = con.ObtenerConexion().createStatement();
+        int resultado = st.executeUpdate(sql);
+
+        if(resultado > 0){
+        JOptionPane.showMessageDialog(null,"✅ Usuario registrado correctamente");
+        txtNombreU.setText("");
+          txtPasswordU.setText("");
+           }else{
+            JOptionPane.showMessageDialog(null,"❌ No se pudo registrar");
+                    }
+
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null,"Error al guardar: " + e.getMessage());
+                }
+            String query = "SELECT MAX(IdUser) AS IdUser FROM Usuario";
+
+            try {
+                Statement st = con.ObtenerConexion().createStatement();
+                ResultSet rs = st.executeQuery(query);
+
+                if(rs.next()){
+                    int cod = rs.getInt("IdUser") + 1;
+                    txtCodigoU.setText(String.valueOf(cod));
+                    txtCodigoU.setEditable(false);
+                    txtNombreU.requestFocus();
+                }
+            } catch(Exception e){
+                JOptionPane.showMessageDialog(null,"Error al obtener código");
+            }
+
+
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        frmInicionS.setVisible(true);
-        frmInicionS.setSize(347,378);
-          
+        this.setVisible(false);
+
+    try {
+        // Crear el formulario splash
+        final FormSplash sp = new FormSplash(); 
+        sp.setVisible(true);
+
+        // Crear el formulario principal que quieres mostrar
         
-        this.repaint();
+        frmInicionS.setSize(347, 378);
+
+        // Hilo que controla la animación del splash
+        Thread hilos = new Thread() {
+            @Override
+            public void run() {
+                for (int i = 0; i <= 100; i++) {
+
+                    // Texto del porcentaje
+                    sp.lblPorcentaje.setText(i + "%");
+
+                    // Estados
+                    if(i==10)
+                        sp.lblEstado.setText("Cargando Módulos...");
+                    else if(i==50)
+                        sp.lblEstado.setText("Preparando interfaz...");
+                    else if(i==90)
+                        sp.lblEstado.setText("Iniciando aplicación...");
+                    else if(i==100) {
+                        sp.setVisible(false);  // oculta el splash
+                        frmInicionS.setVisible(true);  // muestra tu frame
+                        frmInicionS.setSize(347, 378);
+                    }
+
+                    sp.pgBarraCarga.setValue(i);
+
+                    try { Thread.sleep(30); }
+                    catch (InterruptedException ex) {}
+                }
+            }
+        };
+
+        hilos.start();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "ERROR al cargar la aplicación");
+    }
+        
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -395,7 +517,7 @@ public class InicioPrinci extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarN;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnIniciarSesion;
+    public javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JFrame frmAgregar;
@@ -408,16 +530,18 @@ public class InicioPrinci extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPassContra;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel lblCodigoU;
+    private javax.swing.JLabel lblNombreU;
+    private javax.swing.JLabel lblPasswordU;
+    private javax.swing.JLabel lblUltimoU;
+    private javax.swing.JTextField txtCodigoU;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreU;
+    private javax.swing.JTextField txtPasswordU;
     // End of variables declaration//GEN-END:variables
 }
