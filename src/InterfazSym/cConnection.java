@@ -3,7 +3,8 @@ import java.sql.*;
 
 public class cConnection {
     
-    private String url = "jdbc:ucanaccess://D:\\necesaria\\StartUpSoluciones\\Ventas.accdb";
+    private String rutaProyecto = System.getProperty("user.dir");
+    private String url = "jdbc:ucanaccess://" + rutaProyecto +"\\Ventas.accdb";
     private String user = ""; 
     private String passw = ""; 
     private Connection con=null; 

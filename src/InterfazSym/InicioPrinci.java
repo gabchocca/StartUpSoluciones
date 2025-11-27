@@ -1,21 +1,23 @@
 
 package InterfazSym;
 
+import com.formdev.flatlaf.FlatLaf;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.*;
 
-
 public class InicioPrinci extends javax.swing.JFrame {
 
     public static String NombUsuario;
     public InicioPrinci() {
-        initComponents();
         
+        initComponents();
         this.pack();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        
+
     }
 
     /**
@@ -61,23 +63,19 @@ public class InicioPrinci extends javax.swing.JFrame {
         frmInicionS.setMinimumSize(new java.awt.Dimension(323, 300));
         frmInicionS.setUndecorated(true);
 
-        jPanel3.setBackground(new java.awt.Color(227, 191, 155));
         jPanel3.setToolTipText("Iniciar Seción ");
         jPanel3.setMinimumSize(new java.awt.Dimension(323, 374));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("INICIAR SESIÓN");
 
-        txtNombre.setBackground(new java.awt.Color(228, 214, 186));
-        txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        txtNombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
 
-        btnIniciarSesion.setBackground(new java.awt.Color(228, 214, 186));
         btnIniciarSesion.setText("Aceptar");
         btnIniciarSesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, null));
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +84,6 @@ public class InicioPrinci extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setBackground(new java.awt.Color(228, 214, 186));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, null));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,13 +92,10 @@ public class InicioPrinci extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Uusario");
+        jLabel5.setText("Usuario");
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contraseña");
 
-        btnAgregarN.setBackground(new java.awt.Color(228, 214, 186));
         btnAgregarN.setText("<html>Agregar nuevo<br> .        .   . usuario</html>");
         btnAgregarN.setToolTipText("");
         btnAgregarN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -112,9 +106,7 @@ public class InicioPrinci extends javax.swing.JFrame {
             }
         });
 
-        jPassContra.setBackground(new java.awt.Color(228, 214, 186));
-        jPassContra.setForeground(new java.awt.Color(255, 255, 255));
-        jPassContra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPassContra.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPassContra.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jPassContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,9 +259,9 @@ public class InicioPrinci extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(199, 212, 248));
         jButton1.setFont(new java.awt.Font("Lucida Calligraphy", 1, 18)); // NOI18N
         jButton1.setText("INICIO");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -293,7 +285,7 @@ public class InicioPrinci extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
 
     }//GEN-LAST:event_txtNombreActionPerformed
@@ -335,7 +327,11 @@ public class InicioPrinci extends javax.swing.JFrame {
                 if(rs.next()){
                     JOptionPane.showMessageDialog(null,"✅ Bienvenido " + user);
                     this.setVisible(false);
-                    new Interfaz().setVisible(true);
+                    
+                    Interfaz myInterfaz = new Interfaz();
+                    myInterfaz.setVisible(true);
+                    
+                    FlatLaf.updateUI();
                 } else {
                     JOptionPane.showMessageDialog(null,"❌ Usuario o contraseña incorrectos");
                     txtNombre.setText("");
@@ -429,7 +425,7 @@ public class InicioPrinci extends javax.swing.JFrame {
         sp.setVisible(true);
 
         // Crear el formulario principal que quieres mostrar
-        
+
         frmInicionS.setSize(347, 378);
 
         // Hilo que controla la animación del splash
@@ -451,6 +447,7 @@ public class InicioPrinci extends javax.swing.JFrame {
                     else if(i==100) {
                         sp.setVisible(false);  // oculta el splash
                         frmInicionS.setVisible(true);  // muestra tu frame
+                        FlatLaf.updateUI();
                         frmInicionS.setSize(347, 378);
                     }
 

@@ -1,7 +1,9 @@
 
 package InterfazSym;
+import com.formdev.flatlaf.FlatLaf;
 import javax.swing.BorderFactory;
 import java.awt.Color;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 import java.sql.*;
@@ -10,9 +12,9 @@ public class Interfaz extends javax.swing.JFrame {
 
     public Interfaz() {
         initComponents();
-        
-        
     }
+   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -127,11 +129,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         frmRegistrarVenta.setBounds(new java.awt.Rectangle(300, 150, 600, 450));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setToolTipText("");
 
-        jLabel2.setBackground(new java.awt.Color(26, 242, 235));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(93, 104, 138));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Registro de Venta");
         jLabel2.setToolTipText("");
@@ -153,40 +152,26 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
-        jPanel4.setBackground(new java.awt.Color(192, 201, 238));
         jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(85, 88, 121));
         jLabel1.setText(" Ingrese el ID del producto: ");
-        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(85, 88, 121), new java.awt.Color(85, 88, 121)));
 
-        jTextField1.setBackground(new java.awt.Color(109, 148, 197));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(93, 104, 138));
         jTextField1.setText("ex");
-        jTextField1.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(85, 88, 121)));
+        jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(85, 88, 121));
         jLabel4.setText(" Ingrese la cantidad vendida: ");
-        jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(85, 88, 121), new java.awt.Color(85, 88, 121)));
 
-        jTextField2.setBackground(new java.awt.Color(109, 148, 197));
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(93, 104, 138));
         jTextField2.setText("ex");
         jTextField2.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(85, 88, 121)));
+        jTextField2.setDisabledTextColor(null);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(93, 104, 138));
         jButton1.setText("Registrar");
-        jButton1.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(109, 148, 197)));
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -199,6 +184,7 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField3.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jTextField3.setText("...");
         jTextField3.setBorder(null);
+        jTextField3.setEnabled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -220,7 +206,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,24 +260,19 @@ public class Interfaz extends javax.swing.JFrame {
 
         FrmNuevoCliente.setBounds(new java.awt.Rectangle(250, 250, 0, 0));
 
-        jPanel5.setBackground(new java.awt.Color(203, 242, 165));
+        jPanel5.setToolTipText("");
 
-        jLabel11.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
         jLabel11.setText("REGISTRAR NUEVO CLIENTE");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel12.setText("Nombre del cliente:");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel13.setText("DNI:");
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel14.setText("Teléfono:");
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel16.setText("Correo Electronico:");
 
         txtDNI.addActionListener(new java.awt.event.ActionListener() {
@@ -300,20 +281,16 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(234, 255, 243));
-        btnGuardar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         btnGuardar.setText("Guardar");
-        btnGuardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), null, null));
+        btnGuardar.setBorder(null);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        btnCancelar.setBackground(new java.awt.Color(234, 255, 243));
-        btnCancelar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), null, null));
+        btnCancelar.setBorder(null);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -399,7 +376,6 @@ public class Interfaz extends javax.swing.JFrame {
         frmBuscarUsuario.setTitle("BUSCAR USUARIO");
         frmBuscarUsuario.setMinimumSize(new java.awt.Dimension(450, 450));
 
-        jPanel7.setBackground(new java.awt.Color(14, 49, 84));
         jPanel7.setMinimumSize(new java.awt.Dimension(300, 300));
 
         lblNombreUserBuscar.setText("Ingrese Codigo Usuario a Buscar: ");
@@ -407,6 +383,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setText("BUSCAR USUARIO");
 
+        txtNombUserBuscar.setBorder(null);
         txtNombUserBuscar.setPreferredSize(new java.awt.Dimension(200, 200));
         txtNombUserBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -414,25 +391,23 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        btnBuscarUser.setBackground(new java.awt.Color(153, 153, 255));
         btnBuscarUser.setFont(new java.awt.Font("Wide Latin", 0, 12)); // NOI18N
         btnBuscarUser.setText("BUSCAR");
-        btnBuscarUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBuscarUser.setBorder(null);
         btnBuscarUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarUserActionPerformed(evt);
             }
         });
 
-        btnSalirBuscarU.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnSalirBuscarU.setText("Salir");
+        btnSalirBuscarU.setBorder(null);
         btnSalirBuscarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirBuscarUActionPerformed(evt);
             }
         });
 
-        tblResultadoUsuario.setBackground(new java.awt.Color(149, 172, 250));
         tblResultadoUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -504,7 +479,6 @@ public class Interfaz extends javax.swing.JFrame {
         frmVenta.setTitle("REGISTRAR VENTA");
         frmVenta.setMinimumSize(new java.awt.Dimension(800, 1000));
 
-        jPanel6.setBackground(new java.awt.Color(153, 204, 255));
         jPanel6.setPreferredSize(new java.awt.Dimension(800, 900));
 
         lblUltimoCP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -535,11 +509,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setText("Productos a Vender");
 
-        txtNumCP.setBackground(new java.awt.Color(255, 255, 204));
         txtNumCP.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtNumCP.setForeground(new java.awt.Color(0, 0, 255));
-
-        txtCodigoUser.setBackground(new java.awt.Color(255, 255, 204));
 
         txtDNI1.setToolTipText("");
 
@@ -733,7 +703,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(btnEfectuar, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58)
                         .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -895,9 +865,19 @@ public class Interfaz extends javax.swing.JFrame {
         PeGestionClientes.setText("Gestion Clientes");
 
         omModificarClientes.setText("Modificar Clientes");
+        omModificarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                omModificarClientesActionPerformed(evt);
+            }
+        });
         PeGestionClientes.add(omModificarClientes);
 
         omDardeBaja.setText("Dar de Baja");
+        omDardeBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                omDardeBajaActionPerformed(evt);
+            }
+        });
         PeGestionClientes.add(omDardeBaja);
 
         PeGestion.add(PeGestionClientes);
@@ -913,6 +893,11 @@ public class Interfaz extends javax.swing.JFrame {
         PeProductos.add(omNewProducto);
 
         omActualizarStock.setText("Actualizar Stock Producto");
+        omActualizarStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                omActualizarStockActionPerformed(evt);
+            }
+        });
         PeProductos.add(omActualizarStock);
 
         PeGestion.add(PeProductos);
@@ -922,12 +907,27 @@ public class Interfaz extends javax.swing.JFrame {
         PeReportes.setText("Reportes");
 
         PeReportarVentas.setText("Reportar Ventas");
+        PeReportarVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PeReportarVentasActionPerformed(evt);
+            }
+        });
         PeReportes.add(PeReportarVentas);
 
         PeReportarClientes.setText("Reportar Clientes");
+        PeReportarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PeReportarClientesActionPerformed(evt);
+            }
+        });
         PeReportes.add(PeReportarClientes);
 
         PeReportarProductos.setText("Reportar Productos");
+        PeReportarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PeReportarProductosActionPerformed(evt);
+            }
+        });
         PeReportes.add(PeReportarProductos);
 
         jMenuBar1.add(PeReportes);
@@ -951,11 +951,13 @@ public class Interfaz extends javax.swing.JFrame {
     private void PeRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeRegistrarVentaActionPerformed
 
        frmRegistrarVenta.setVisible(true);
+       FlatLaf.updateUI();
     }//GEN-LAST:event_PeRegistrarVentaActionPerformed
 
     private void PeNewClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeNewClienteActionPerformed
         
         FrmNuevoCliente.setVisible(true);
+        FlatLaf.updateUI();
         FrmNuevoCliente.setSize(400,500);
         
     }//GEN-LAST:event_PeNewClienteActionPerformed
@@ -971,6 +973,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void omNewProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omNewProductoActionPerformed
         Productos ventanaProductos = new Productos();
         ventanaProductos.setVisible(true);
+        FlatLaf.updateUI();
     }//GEN-LAST:event_omNewProductoActionPerformed
 
     private void txtDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNIActionPerformed
@@ -1056,7 +1059,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void BuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarUsuarioActionPerformed
      frmBuscarUsuario.setVisible(true);        
-        
+     FlatLaf.updateUI();
         
         
         
@@ -1171,6 +1174,33 @@ public class Interfaz extends javax.swing.JFrame {
     private void cmbDctoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDctoActionPerformed
 
     }//GEN-LAST:event_cmbDctoActionPerformed
+
+    private void omModificarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omModificarClientesActionPerformed
+        // TODO add your handling code here:
+        FlatLaf.updateUI();
+    }//GEN-LAST:event_omModificarClientesActionPerformed
+
+    private void omDardeBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omDardeBajaActionPerformed
+        // TODO add your handling code here:
+        FlatLaf.updateUI();
+    }//GEN-LAST:event_omDardeBajaActionPerformed
+
+    private void omActualizarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omActualizarStockActionPerformed
+        // TODO add your handling code here:
+        FlatLaf.updateUI();
+    }//GEN-LAST:event_omActualizarStockActionPerformed
+
+    private void PeReportarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeReportarVentasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PeReportarVentasActionPerformed
+
+    private void PeReportarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeReportarClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PeReportarClientesActionPerformed
+
+    private void PeReportarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeReportarProductosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PeReportarProductosActionPerformed
 
     public static void main(String args[]) {
 
