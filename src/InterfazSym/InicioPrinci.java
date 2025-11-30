@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import InterfazSym.Datos.*;
 
 public class InicioPrinci extends javax.swing.JFrame {
 
@@ -188,34 +189,31 @@ public class InicioPrinci extends javax.swing.JFrame {
         frmAgregar.setTitle("Registrar nuevo usuario");
         frmAgregar.setBounds(new java.awt.Rectangle(400, 315, 0, 0));
 
-        jPanel2.setBackground(new java.awt.Color(199, 181, 181));
+        jPanel2.setBackground(null);
         jPanel2.setToolTipText("Registrar nuevo usuario");
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel1.setText("REGISTRAR NUEVO USUARIO");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 290, 20));
 
-        lblNombreU.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblNombreU.setText("Nombre de usuario: ");
         jPanel2.add(lblNombreU, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
         jPanel2.add(txtNombreU, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 190, -1));
 
-        lblPasswordU.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblPasswordU.setText("Contraseña:");
         jPanel2.add(lblPasswordU, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
         jPanel2.add(txtPasswordU, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 190, -1));
 
-        lblCodigoU.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblCodigoU.setBackground(null);
+        lblCodigoU.setForeground(null);
         lblCodigoU.setText("Codigo:");
         jPanel2.add(lblCodigoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
         jPanel2.add(txtCodigoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 190, -1));
 
-        btnVolver.setBackground(new java.awt.Color(241, 222, 204));
-        btnVolver.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnVolver.setBackground(null);
         btnVolver.setText("VOLVER");
         btnVolver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), null, null));
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -223,10 +221,10 @@ public class InicioPrinci extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 110, 30));
+        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 100, 20));
 
-        btnRegistrar.setBackground(new java.awt.Color(241, 222, 204));
-        btnRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnRegistrar.setBackground(null);
+        btnRegistrar.setForeground(null);
         btnRegistrar.setText("REGISTRAR");
         btnRegistrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), null, null));
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +238,6 @@ public class InicioPrinci extends javax.swing.JFrame {
         lblUltimoU.setText(".........");
         jPanel2.add(lblUltimoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Ultimo Codigo Registrado:");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
@@ -326,7 +323,12 @@ public class InicioPrinci extends javax.swing.JFrame {
 
                 if(rs.next()){
                     JOptionPane.showMessageDialog(null,"✅ Bienvenido " + user);
-                    this.setVisible(false);
+                    
+                    
+                    //guardando el nombre de usuario:
+                    Datos.USUARIO = txtNombre.getText();
+                    
+                    frmInicionS.setVisible(false);
                     
                     Interfaz myInterfaz = new Interfaz();
                     myInterfaz.setVisible(true);
@@ -344,7 +346,7 @@ public class InicioPrinci extends javax.swing.JFrame {
             }
                    
            }
-        
+           
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnAgregarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarNActionPerformed
@@ -537,7 +539,7 @@ public class InicioPrinci extends javax.swing.JFrame {
     private javax.swing.JLabel lblPasswordU;
     private javax.swing.JLabel lblUltimoU;
     private javax.swing.JTextField txtCodigoU;
-    private javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreU;
     private javax.swing.JTextField txtPasswordU;
     // End of variables declaration//GEN-END:variables
