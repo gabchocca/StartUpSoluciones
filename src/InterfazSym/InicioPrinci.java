@@ -332,7 +332,7 @@ public class InicioPrinci extends javax.swing.JFrame {
                     
                     Interfaz myInterfaz = new Interfaz();
                     myInterfaz.setVisible(true);
-                    
+                    myInterfaz.setSize(400,428);
                     FlatLaf.updateUI();
                 } else {
                     JOptionPane.showMessageDialog(null,"❌ Usuario o contraseña incorrectos");
